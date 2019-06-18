@@ -1,15 +1,15 @@
+package hncj.edu.manager.controller;
+
 import com.alibaba.dubbo.config.annotation.Reference;
 import hncj.edu.entity.PageResult;
 import hncj.edu.entity.PygResult;
-import hncj.edu.manager.service.TypeTemplateService;
-import hncj.edu.pojo.TbTypeTemplate;
+import hncj.edu.manager.service.GoodsDescService;
+import hncj.edu.pojo.TbGoodsDesc;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * controller
@@ -17,19 +17,19 @@ import java.util.Map;
  *
  */
 @RestController
-@RequestMapping("/typeTemplate")
-public class TypeTemplateController {
+@RequestMapping("/goodsDesc")
+public class GoodsDescController {
 
 	@Reference
-	private TypeTemplateService typeTemplateService;
+	private GoodsDescService goodsDescService;
 	
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<TbTypeTemplate> findAll(){
-		return typeTemplateService.findAll();
+	public List<TbGoodsDesc> findAll(){
+		return goodsDescService.findAll();
 	}
 	
 	
@@ -39,18 +39,18 @@ public class TypeTemplateController {
 	 */
 	@RequestMapping("/findPage")
 	public PageResult findPage(int page, int rows){
-		return typeTemplateService.findPage(page, rows);
+		return goodsDescService.findPage(page, rows);
 	}
 	
 	/**
 	 * 增加
-	 * @param typeTemplate
+	 * @param goodsDesc
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public PygResult add(@RequestBody TbTypeTemplate typeTemplate){
+	public PygResult add(@RequestBody TbGoodsDesc goodsDesc){
 		try {
-			typeTemplateService.add(typeTemplate);
+			goodsDescService.add(goodsDesc);
 			return new PygResult(true, "增加成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,13 +60,13 @@ public class TypeTemplateController {
 	
 	/**
 	 * 修改
-	 * @param typeTemplate
+	 * @param goodsDesc
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public PygResult update(@RequestBody TbTypeTemplate typeTemplate){
+	public PygResult update(@RequestBody TbGoodsDesc goodsDesc){
 		try {
-			typeTemplateService.update(typeTemplate);
+			goodsDescService.update(goodsDesc);
 			return new PygResult(true, "修改成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,8 +80,8 @@ public class TypeTemplateController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
-	public TbTypeTemplate findOne(Long id){
-		return typeTemplateService.findOne(id);		
+	public TbGoodsDesc findOne(Long id){
+		return goodsDescService.findOne(id);		
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class TypeTemplateController {
 	@RequestMapping("/delete")
 	public PygResult delete(Long [] ids){
 		try {
-			typeTemplateService.delete(ids);
+			goodsDescService.delete(ids);
 			return new PygResult(true, "删除成功"); 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,21 +102,14 @@ public class TypeTemplateController {
 	
 		/**
 	 * 查询+分页
-	 * @param typeTemplate
+	 * @param goodsDesc
 	 * @param page
 	 * @param rows
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResult search(@RequestBody TbTypeTemplate typeTemplate, int page, int rows  ){
-		Map map = new HashMap<String,String>();
-		map.put("id","123");
-		map.put("text","123");
-		return typeTemplateService.findPage(typeTemplate, page, rows);		
+	public PageResult search(@RequestBody TbGoodsDesc goodsDesc, int page, int rows  ){
+		return goodsDescService.findPage(goodsDesc, page, rows);		
 	}
-
-	@RequestMapping("/selectOptionList")
-	public List<Map> selectOptionList(){
-		return typeTemplateService.selectOptionList();
-	}
+	
 }

@@ -1,3 +1,5 @@
+package hncj.edu.manager.controller;
+
 import hncj.edu.entity.PygResult;
 import hncj.edu.utils.FastDFSClient;
 import org.springframework.beans.factory.annotation.Value;

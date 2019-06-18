@@ -1,8 +1,10 @@
+package hncj.edu.manager.controller;
+
 import com.alibaba.dubbo.config.annotation.Reference;
-import hncj.edu.content.service.ContentService;
 import hncj.edu.entity.PageResult;
 import hncj.edu.entity.PygResult;
-import hncj.edu.pojo.TbContent;
+import hncj.edu.manager.service.ItemService;
+import hncj.edu.pojo.TbItem;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,19 +17,19 @@ import java.util.List;
  *
  */
 @RestController
-@RequestMapping("/content")
-public class ContentController {
+@RequestMapping("/item")
+public class ItemController {
 
 	@Reference
-	private ContentService contentService;
+	private ItemService itemService;
 	
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<TbContent> findAll(){
-		return contentService.findAll();
+	public List<TbItem> findAll(){
+		return itemService.findAll();
 	}
 	
 	
@@ -37,18 +39,18 @@ public class ContentController {
 	 */
 	@RequestMapping("/findPage")
 	public PageResult findPage(int page, int rows){
-		return contentService.findPage(page, rows);
+		return itemService.findPage(page, rows);
 	}
 	
 	/**
 	 * 增加
-	 * @param content
+	 * @param item
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public PygResult add(@RequestBody TbContent content){
+	public PygResult add(@RequestBody TbItem item){
 		try {
-			contentService.add(content);
+			itemService.add(item);
 			return new PygResult(true, "增加成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,13 +60,13 @@ public class ContentController {
 	
 	/**
 	 * 修改
-	 * @param content
+	 * @param item
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public PygResult update(@RequestBody TbContent content){
+	public PygResult update(@RequestBody TbItem item){
 		try {
-			contentService.update(content);
+			itemService.update(item);
 			return new PygResult(true, "修改成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,8 +80,8 @@ public class ContentController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
-	public TbContent findOne(Long id){
-		return contentService.findOne(id);		
+	public TbItem findOne(Long id){
+		return itemService.findOne(id);		
 	}
 	
 	/**
@@ -90,7 +92,7 @@ public class ContentController {
 	@RequestMapping("/delete")
 	public PygResult delete(Long [] ids){
 		try {
-			contentService.delete(ids);
+			itemService.delete(ids);
 			return new PygResult(true, "删除成功"); 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,14 +102,14 @@ public class ContentController {
 	
 		/**
 	 * 查询+分页
-	 * @param content
+	 * @param item
 	 * @param page
 	 * @param rows
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResult search(@RequestBody TbContent content, int page, int rows  ){
-		return contentService.findPage(content, page, rows);		
+	public PageResult search(@RequestBody TbItem item, int page, int rows  ){
+		return itemService.findPage(item, page, rows);		
 	}
 	
 }

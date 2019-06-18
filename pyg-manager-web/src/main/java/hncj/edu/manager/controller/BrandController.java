@@ -1,3 +1,5 @@
+package hncj.edu.manager.controller;
+
 import com.alibaba.dubbo.config.annotation.Reference;
 import hncj.edu.entity.PageResult;
 import hncj.edu.entity.PygResult;

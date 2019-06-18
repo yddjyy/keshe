@@ -1,8 +1,10 @@
+package hncj.edu.manager.controller;
+
 import com.alibaba.dubbo.config.annotation.Reference;
 import hncj.edu.entity.PageResult;
 import hncj.edu.entity.PygResult;
-import hncj.edu.manager.service.GoodsDescService;
-import hncj.edu.pojo.TbGoodsDesc;
+import hncj.edu.manager.service.SpecificationOptionService;
+import hncj.edu.pojo.TbSpecificationOption;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,19 +17,19 @@ import java.util.List;
  *
  */
 @RestController
-@RequestMapping("/goodsDesc")
-public class GoodsDescController {
+@RequestMapping("/specificationOption")
+public class SpecificationOptionController {
 
 	@Reference
-	private GoodsDescService goodsDescService;
+	private SpecificationOptionService specificationOptionService;
 	
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<TbGoodsDesc> findAll(){
-		return goodsDescService.findAll();
+	public List<TbSpecificationOption> findAll(){
+		return specificationOptionService.findAll();
 	}
 	
 	
@@ -37,18 +39,18 @@ public class GoodsDescController {
 	 */
 	@RequestMapping("/findPage")
 	public PageResult findPage(int page, int rows){
-		return goodsDescService.findPage(page, rows);
+		return specificationOptionService.findPage(page, rows);
 	}
 	
 	/**
 	 * 增加
-	 * @param goodsDesc
+	 * @param specificationOption
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public PygResult add(@RequestBody TbGoodsDesc goodsDesc){
+	public PygResult add(@RequestBody TbSpecificationOption specificationOption){
 		try {
-			goodsDescService.add(goodsDesc);
+			specificationOptionService.add(specificationOption);
 			return new PygResult(true, "增加成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,13 +60,13 @@ public class GoodsDescController {
 	
 	/**
 	 * 修改
-	 * @param goodsDesc
+	 * @param specificationOption
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public PygResult update(@RequestBody TbGoodsDesc goodsDesc){
+	public PygResult update(@RequestBody TbSpecificationOption specificationOption){
 		try {
-			goodsDescService.update(goodsDesc);
+			specificationOptionService.update(specificationOption);
 			return new PygResult(true, "修改成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,8 +80,8 @@ public class GoodsDescController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
-	public TbGoodsDesc findOne(Long id){
-		return goodsDescService.findOne(id);		
+	public TbSpecificationOption findOne(Long id){
+		return specificationOptionService.findOne(id);		
 	}
 	
 	/**
@@ -90,7 +92,7 @@ public class GoodsDescController {
 	@RequestMapping("/delete")
 	public PygResult delete(Long [] ids){
 		try {
-			goodsDescService.delete(ids);
+			specificationOptionService.delete(ids);
 			return new PygResult(true, "删除成功"); 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,14 +102,14 @@ public class GoodsDescController {
 	
 		/**
 	 * 查询+分页
-	 * @param goodsDesc
+	 * @param specificationOption
 	 * @param page
 	 * @param rows
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResult search(@RequestBody TbGoodsDesc goodsDesc, int page, int rows  ){
-		return goodsDescService.findPage(goodsDesc, page, rows);		
+	public PageResult search(@RequestBody TbSpecificationOption specificationOption, int page, int rows  ){
+		return specificationOptionService.findPage(specificationOption, page, rows);		
 	}
 	
 }

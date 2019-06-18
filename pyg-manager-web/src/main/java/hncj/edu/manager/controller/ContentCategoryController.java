@@ -1,8 +1,10 @@
+package hncj.edu.manager.controller;
+
 import com.alibaba.dubbo.config.annotation.Reference;
+import hncj.edu.content.service.ContentCategoryService;
 import hncj.edu.entity.PageResult;
 import hncj.edu.entity.PygResult;
-import hncj.edu.manager.service.SpecificationOptionService;
-import hncj.edu.pojo.TbSpecificationOption;
+import hncj.edu.pojo.TbContentCategory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,19 +17,19 @@ import java.util.List;
  *
  */
 @RestController
-@RequestMapping("/specificationOption")
-public class SpecificationOptionController {
+@RequestMapping("/contentCategory")
+public class ContentCategoryController {
 
 	@Reference
-	private SpecificationOptionService specificationOptionService;
+	private ContentCategoryService contentCategoryService;
 	
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<TbSpecificationOption> findAll(){
-		return specificationOptionService.findAll();
+	public List<TbContentCategory> findAll(){
+		return contentCategoryService.findAll();
 	}
 	
 	
@@ -37,18 +39,18 @@ public class SpecificationOptionController {
 	 */
 	@RequestMapping("/findPage")
 	public PageResult findPage(int page, int rows){
-		return specificationOptionService.findPage(page, rows);
+		return contentCategoryService.findPage(page, rows);
 	}
 	
 	/**
 	 * 增加
-	 * @param specificationOption
+	 * @param contentCategory
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public PygResult add(@RequestBody TbSpecificationOption specificationOption){
+	public PygResult add(@RequestBody TbContentCategory contentCategory){
 		try {
-			specificationOptionService.add(specificationOption);
+			contentCategoryService.add(contentCategory);
 			return new PygResult(true, "增加成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,13 +60,13 @@ public class SpecificationOptionController {
 	
 	/**
 	 * 修改
-	 * @param specificationOption
+	 * @param contentCategory
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public PygResult update(@RequestBody TbSpecificationOption specificationOption){
+	public PygResult update(@RequestBody TbContentCategory contentCategory){
 		try {
-			specificationOptionService.update(specificationOption);
+			contentCategoryService.update(contentCategory);
 			return new PygResult(true, "修改成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,8 +80,8 @@ public class SpecificationOptionController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
-	public TbSpecificationOption findOne(Long id){
-		return specificationOptionService.findOne(id);		
+	public TbContentCategory findOne(Long id){
+		return contentCategoryService.findOne(id);		
 	}
 	
 	/**
@@ -90,7 +92,7 @@ public class SpecificationOptionController {
 	@RequestMapping("/delete")
 	public PygResult delete(Long [] ids){
 		try {
-			specificationOptionService.delete(ids);
+			contentCategoryService.delete(ids);
 			return new PygResult(true, "删除成功"); 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,14 +102,14 @@ public class SpecificationOptionController {
 	
 		/**
 	 * 查询+分页
-	 * @param specificationOption
+	 * @param contentCategory
 	 * @param page
 	 * @param rows
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResult search(@RequestBody TbSpecificationOption specificationOption, int page, int rows  ){
-		return specificationOptionService.findPage(specificationOption, page, rows);		
+	public PageResult search(@RequestBody TbContentCategory contentCategory, int page, int rows  ){
+		return contentCategoryService.findPage(contentCategory, page, rows);		
 	}
 	
 }
