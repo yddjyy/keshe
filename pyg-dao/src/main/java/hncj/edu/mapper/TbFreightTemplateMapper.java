@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbFreightTemplate;
 import hncj.edu.pojo.TbFreightTemplateExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbFreightTemplateMapper {
     long countByExample(TbFreightTemplateExample example);
 

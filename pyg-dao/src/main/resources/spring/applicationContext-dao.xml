@@ -46,7 +46,7 @@ http://www.springframework.org/schema/tx ">
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
         <!--扫描dao接口生成实现-->
-        <property name="basePackage" value="top.ingxx.mapper"/>
+        <property name="basePackage" value="hncj.edu.mapper"/>
     </bean>
 
 </beans>

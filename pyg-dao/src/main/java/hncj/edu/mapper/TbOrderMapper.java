@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbOrder;
 import hncj.edu.pojo.TbOrderExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbOrderMapper {
     long countByExample(TbOrderExample example);
 

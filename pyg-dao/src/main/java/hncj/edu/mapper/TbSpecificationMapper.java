@@ -3,10 +3,11 @@ package hncj.edu.mapper;
 import hncj.edu.pojo.TbSpecification;
 import hncj.edu.pojo.TbSpecificationExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
-
+@Component
 public interface TbSpecificationMapper {
     long countByExample(TbSpecificationExample example);
 

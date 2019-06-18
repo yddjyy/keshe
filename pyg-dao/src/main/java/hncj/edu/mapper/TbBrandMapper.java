@@ -3,10 +3,11 @@ package hncj.edu.mapper;
 import hncj.edu.pojo.TbBrand;
 import hncj.edu.pojo.TbBrandExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
-
+@Component
 public interface TbBrandMapper {
     long countByExample(TbBrandExample example);
 

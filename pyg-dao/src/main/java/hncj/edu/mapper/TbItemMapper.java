@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbItem;
 import hncj.edu.pojo.TbItemExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbItemMapper {
     long countByExample(TbItemExample example);
 

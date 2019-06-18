@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbAddress;
 import hncj.edu.pojo.TbAddressExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbAddressMapper {
     long countByExample(TbAddressExample example);
 

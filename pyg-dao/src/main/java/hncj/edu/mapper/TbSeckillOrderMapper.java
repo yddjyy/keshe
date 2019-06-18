@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbSeckillOrder;
 import hncj.edu.pojo.TbSeckillOrderExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbSeckillOrderMapper {
     long countByExample(TbSeckillOrderExample example);
 

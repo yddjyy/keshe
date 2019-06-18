@@ -65,15 +65,17 @@
             <groupId>hncj.edu</groupId>
             <artifactId>pyg-content-interface</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>hncj.edu</groupId>
             <artifactId>pyg-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>hncj.edu</groupId>
+            <artifactId>pyg-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

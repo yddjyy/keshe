@@ -3,11 +3,12 @@ package hncj.edu.mapper;
 import hncj.edu.pojo.TbTypeTemplate;
 import hncj.edu.pojo.TbTypeTemplateExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
-
+@Component
 public interface TbTypeTemplateMapper {
     long countByExample(TbTypeTemplateExample example);
 

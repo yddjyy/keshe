@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbPayLog;
 import hncj.edu.pojo.TbPayLogExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbPayLogMapper {
     long countByExample(TbPayLogExample example);
 

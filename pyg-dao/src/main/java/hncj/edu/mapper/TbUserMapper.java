@@ -3,9 +3,10 @@ package hncj.edu.mapper;
 import hncj.edu.pojo.TbUser;
 import hncj.edu.pojo.TbUserExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public interface TbUserMapper {
     long countByExample(TbUserExample example);
 

@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbProvinces;
 import hncj.edu.pojo.TbProvincesExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbProvincesMapper {
     long countByExample(TbProvincesExample example);
 

@@ -11,9 +11,6 @@
 
     <artifactId>pyg-common</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>pyg-content</module>
-    </modules>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

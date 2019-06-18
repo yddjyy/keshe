@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbSeckillGoods;
 import hncj.edu.pojo.TbSeckillGoodsExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbSeckillGoodsMapper {
     long countByExample(TbSeckillGoodsExample example);
 

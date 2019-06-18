@@ -2,9 +2,10 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbContentCategory;
 import hncj.edu.pojo.TbContentCategoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
-
+import org.springframework.stereotype.Component;
+import java.util.List;
+@Component
 public interface TbContentCategoryMapper {
     long countByExample(TbContentCategoryExample example);
 

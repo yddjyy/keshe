@@ -2,9 +2,12 @@ package hncj.edu.mapper;
 
 import hncj.edu.pojo.TbGoodsDesc;
 import hncj.edu.pojo.TbGoodsDescExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbGoodsDescMapper {
     long countByExample(TbGoodsDescExample example);
 
